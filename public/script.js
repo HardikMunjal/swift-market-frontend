@@ -33,10 +33,6 @@
     });
 
     // create the controller and inject Angular's $scope
-    loginApp.controller('loginController', function($scope) {
-        // create a message to display in our view
-        $scope.message = 'controller should be in seperate folder!!';
-    });
 
     loginApp.controller('aboutController', function($scope) {
         $scope.message = 'HEy this is hardik, Get ready for the big';
