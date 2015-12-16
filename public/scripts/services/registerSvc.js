@@ -1,4 +1,4 @@
-loginApp.factory("RegisterService", function() {
+loginApp.factory("RegisterService", ['$http', function($http) {
   var users = ["hardik", "shivika", "riddhi"];
 
   return {
@@ -7,6 +7,14 @@ loginApp.factory("RegisterService", function() {
     },
     first: function() {
       return users[0];
+    },
+    list:function() {
+    	return $http({
+    		url: 'http://0.0.0.0:5000/get/teams',
+    		method: 'GET'
+    	})
     }
   };
-});
+}]);
+
+
