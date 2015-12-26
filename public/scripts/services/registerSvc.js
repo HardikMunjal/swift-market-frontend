@@ -8,6 +8,13 @@ loginApp.factory("RegisterService", ['$http', function($http) {
     first: function() {
       return users[0];
     },
+    registerUser:function(params) {
+      return $http({
+        url: 'http://0.0.0.0:5000/create/user',
+        method: 'POST',
+        data: params
+      })
+    },
     list:function() {
     	return $http({
     		url: 'http://0.0.0.0:5000/get/teams',
