@@ -1,0 +1,109 @@
+<!doctype html>
+<html>
+<head>
+  <title>Socket.IO chat</title>
+
+  <script src="http://localhost:5000/socket.io/socket.io.js"></script>
+  <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+<!-- /*    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      body { font: 13px Helvetica, Arial; }
+      form { background: #000; padding: 3px; position: fixed; bottom: 0; width: 100%; }
+      form input { border: 0; padding: 10px; width: 90%; margin-right: .5%; }
+      form button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 10px; }
+      #messages { list-style-type: none; margin: 0; padding: 0; }
+      #messages li { padding: 5px 10px; }
+      #messages li:nth-child(odd) { background: #eee; }
+    </style>*/ -->
+
+
+    <style>
+     #chat{ height : 500px;}
+     #contentWrap{
+      display:none;
+    }
+
+    #chatWrap
+    {
+      float:left;
+      border:1px #000 solid;
+    }
+  </style>
+</head>
+<body>
+
+
+  <script>
+  // var socket = io('http://localhost:5000');
+
+  jQuery(function($){
+   var socket = io('http://localhost:5000');
+   var $messageForm = $('#send-message');
+   var $messageBox = $('#message');
+   var $chat = $('#chat');
+   var $nickForm =$('#setNick');
+   var $nickError = $('#nickError');
+   var $nickBox = $('#nickname');
+   var $users = $('#users');
+
+   $nickForm.submit(function(e){
+
+    e.preventDefault();
+    socket.emit('new user', $nickBox.val(), function(data){
+      if(data){
+        $('#nickWrap').hide();
+        $('#contentWrap').show();
+      } else {
+        $nickError.html('Bro, This username is already Taken, Please choose different');
+      }
+
+    });
+    $nickBox.val('');
+  });
+
+   socket.on('usernames',function(data){
+    var html = '';
+    for(i=0; i<data.names.length; i++)
+    {
+      html += data.names[i] + ' from ' +data.address+ '<br>'
+    }
+    $users.html(html);
+  });
+   
+   $messageForm.submit(function(e){
+
+    e.preventDefault();
+    socket.emit('send message', $messageBox.val());
+    console.log($messageBox.val());
+    $messageBox.val('');
+  });
+
+   socket.on('new message',function(data){
+     $chat.append('<b>' +data.nick+ ': </b>' +data.msg+ '<br/>');
+   });
+});
+
+</script>
+
+<div id="nickWrap">
+ <p> Enter a username : </p>
+ <p id= "nickError"></p>
+ <form id="setNick">
+   <input size ="35" id="nickname"></input>
+   <input type="submit"></input>
+ </form>
+</div>
+
+<div id="contentWrap">
+  <div id="chatWrap">
+    <div id="chat"></div>
+    <form id="send-message">
+     <input size="35" id="message"></input>
+     <input type="submit"></input>
+   </form>
+ </div>
+ <div id ="users"></div>
+
+
+</body>
+</html>

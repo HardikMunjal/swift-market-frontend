@@ -10,4 +10,8 @@ module.exports = function (app) {
 			    res.render('index.html');
 			  });
 
+ app.get('/open/chat' , function(req , res, next){
+ 	    res.render('chat.html');
+ 	});
+
 };
