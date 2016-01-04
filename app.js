@@ -2,7 +2,7 @@ var express = require('express');
 var app = express();
 var router = express.Router();
 
-app.set('view engine', 'jade');
+//app.set('view engine', 'jade');
 app.use(router);
 require('./routes')(router);
 
