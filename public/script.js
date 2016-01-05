@@ -29,6 +29,11 @@
             .when('/register', {
                 templateUrl : 'pages/register.html',
                 controller  : 'registerController'
+            })
+            //route for main pRofile module
+            .when('/user_profile', {
+                templateUrl : 'pages/profile/UserProfile.html',
+                controller  : 'UserProfileController'
             });
     });
 
