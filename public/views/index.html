@@ -10,7 +10,9 @@
 
   <!-- SPELLS -->
   <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
-  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
+
+  <!-- using ui router instead of ng router  -->
+  <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.10/angular-ui-router.min.js"></script>
   <script src="script.js"></script>
   <script src="/scripts/controller/login/loginCtrl.js"></script>
   <script src="/scripts/controller/register/registerCtrl.js"></script>
@@ -25,14 +27,12 @@
 <!-- define angular controller -->
 <body>
 <hello></hello>
-<h1>ye kya</h1>
-  
 
   <div id="main">
   
     <!-- angular templating -->
         <!-- this is where content will be injected -->
-    <div ng-view></div>
+    <div ui-view></div>
     
   </div>
   

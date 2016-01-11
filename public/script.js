@@ -1,37 +1,41 @@
  // create the module and name it scotchApp
-    var loginApp = angular.module('loginApp', ['ngRoute']);
+    var loginApp = angular.module('loginApp', ['ui.router']);
 
     // configure our routes
-    loginApp.config(function($routeProvider) {
-        $routeProvider
+    loginApp.config(function($stateProvider, $urlRouterProvider) {
+        
+        $urlRouterProvider.otherwise("/login")
+
+        $stateProvider
 
             // route for the home page
-            .when('/', {
-                templateUrl : 'pages/login.html',
-                controller  : 'loginController'
-            })
-            .when('/login', {
+            .state('login', {
+                url: '/login',
                 templateUrl : 'pages/login.html',
                 controller  : 'loginController'
             })
 
             // route for the about page
-            .when('/about', {
+            .state('about', {
+                url: '/about',
                 templateUrl : 'pages/about.html',
                 controller  : 'aboutController'
             })
 
             // route for the contact page
-            .when('/contact', {
+            .state('contact', {
+                url: '/contact',
                 templateUrl : 'pages/contact.html',
                 controller  : 'contactController'
             })
-            .when('/register', {
+            .state('register', {
+                url: '/register',
                 templateUrl : 'pages/register.html',
                 controller  : 'registerController'
             })
             //route for main pRofile module
-            .when('/user_profile', {
+            .state('user_profile', {
+                url: '/user_profile',
                 templateUrl : 'pages/profile/UserProfile.html',
                 controller  : 'UserProfileController'
             });
