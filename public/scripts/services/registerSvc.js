@@ -10,7 +10,7 @@ loginApp.factory("RegisterService", ['$http', function($http) {
     },
     registerUser:function(params) {
       return $http({
-        url: 'http://0.0.0.0:5000/create/user',
+        url: 'http://0.0.0.0:5000/register/user',
         method: 'POST',
         data: params
       })
