@@ -1,0 +1,24 @@
+       <div class="form-group" ng-class="{ 'has-error': form.gender.$dirty && form.gender.$error.required }">
+            <label for="gender">Gender</label>
+            <label>
+            <input type="radio" ng-model="vm.user.gender" value="male">
+            male
+            </label>
+            <label>
+            <input type="radio" ng-model="vm.user.gender" value="female"/>
+            female
+            </label>
+            <span ng-show="form.gender.$dirty && form.gender.$error.required" class="help-block">gender is required</span>
+        </div>
+         <div class="form-group" ng-class="{ 'has-error': form.dob.$dirty && form.dob.$error.required }">
+            <label for="dob">Date of Birth</label>
+            <input type="date" name="date" id="date" class="form-control" ng-model="vm.user.dob" required />
+            <span ng-show="form.date.$dirty && form.date.$error.required" class="help-block">Date is required</span>
+        </div>
+         <div class="form-group row">
+            <div class="text-center">
+                    <a ui-sref="register.profile" class="btn-lg btn-info">
+                    Next Section <span class="glyphicon glyphicon-circle-arrow-right"></span>
+                    </a>
+            </div>
+         </div>

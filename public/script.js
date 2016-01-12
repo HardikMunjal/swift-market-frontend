@@ -3,7 +3,7 @@
 
     // configure our routes
     loginApp.config(function($stateProvider, $urlRouterProvider) {
-        
+
         $urlRouterProvider.otherwise("/login")
 
         $stateProvider
@@ -30,9 +30,29 @@
             })
             .state('register', {
                 url: '/register',
-                templateUrl : 'pages/register.html',
+                templateUrl : 'pages/register/register.html',
                 controller  : 'registerController'
             })
+        
+            // nested states 
+            // each of these sections will have their own view
+            // url will be nested (/form/profile)
+            .state('register.credential', {
+                url: '/credential',
+                templateUrl: 'pages/register/register-credential.html'
+            })
+            
+            // url will be /form/interests
+            .state('register.profile', {
+                url: '/profile',
+                templateUrl: 'pages/register/register-profile.html'
+            })
+
+            .state('register.securer', {
+                url: '/securer',
+                templateUrl: 'pages/register/register-securer.html'
+            })
+
             //route for main pRofile module
             .state('user_profile', {
                 url: '/user_profile',
