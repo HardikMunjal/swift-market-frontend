@@ -4,11 +4,11 @@ loginApp.controller('registerController', function($scope,RegisterService) {
         RegisterService.list().success(function(data) {
         	$scope.users=data;
         });
+        $scope.form_data={};
         $scope.message = 'api call to be made on click of register';
-
         $scope.register = function() {
-        	console.log($scope.vm.user);
-        	RegisterService.registerUser($scope.vm.user).success(function(data) {
+        	//console.log($scope.vm.user);
+        	RegisterService.registerUser($scope.form_data).success(function(data) {
         		$scope.notification=data;
         	});
         };
