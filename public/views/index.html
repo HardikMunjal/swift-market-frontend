@@ -20,22 +20,39 @@
   <script src="/scripts/services/registerSvc.js"></script>
   <script src="/scripts/services/profileChat.js"></script>
   <script src="/scripts/directive/loginSharedTemplate.js"></script>
+  <script src="/scripts/directive/sharedMenu.js"></script>
   <script src="http://localhost:5000/socket.io/socket.io.js"></script>
   <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
   <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+  <style>
+.shared-menu { margin-top:50px; }
+.glyphicon { margin-right:10px; }
+.panel-body { padding:0px; }
+.panel-body table tr td { padding-left: 15px }
+.panel-body .table {margin-bottom: 0px; }
+</style>
 </head>
 
 <!-- define angular controller -->
-<body style="background-color:#000000">
+<body style="background-color:#000000" ng-controller="sessionController">
+<div ng-if="$root.noSession">
 <hello></hello>
 
-  <div id="main">
+<div class="col-md-6 col-md-offset-3">
+<div id="main">
   
     <!-- angular templating -->
         <!-- this is where content will be injected -->
     <div ui-view></div>
     
   </div>
+  </div>
+</div>
+
+<div ng-if="$root.session">
+<globalview></globalview>
+</div>
+  
   
   <footer class="text-center">
     <br>
