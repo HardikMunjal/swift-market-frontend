@@ -94,7 +94,14 @@
                 url: '/user_profile',
                 templateUrl : 'pages/profile/UserProfile.html',
                 controller  : 'UserProfileController'
+            })
+
+            .state('zoozoo', {
+                url: '/zoozoo',
+                templateUrl : 'pages/zoozoo/welcome.html',
+                controller  : 'zoozooController'
             });
+
     });
 
     // create the controller and inject Angular's $scope
@@ -118,11 +125,11 @@
     loginApp.controller('sessionController',['$scope','$rootScope','$location', function($scope,$rootScope,$location) {
         // create a message to display in our view
         $scope.message = 'controller should be in seperate folder!!';
-        $rootScope.session = false;
-        $rootScope.noSession = true;
+        $rootScope.session = true;
+        $rootScope.noSession = false;
 
         if ($rootScope.session==true) {
-         $location.path( "/contact" );
+         $location.path( "/zoozoo" );
         }
         else {
          $location.path( "/login" );

@@ -1,4 +1,4 @@
-loginApp.directive('hello',function(){
+loginApp.directive('loginTemplate',function(){
   return {
     restrict: 'E',
     templateUrl: function(tElement,tAttrs){

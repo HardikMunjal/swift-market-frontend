@@ -1,4 +1,4 @@
-loginApp.directive('globalview',function(){
+loginApp.directive('globalView',function(){
   return {
     restrict: 'E',
     templateUrl: function(tElement,tAttrs){
