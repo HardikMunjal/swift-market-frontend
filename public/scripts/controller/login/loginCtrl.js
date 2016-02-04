@@ -1,4 +1,4 @@
-loginApp.controller('loginController',['$scope','$rootScope', function($scope,$rootScope) {
+loginApp.controller('loginController',['$scope','$rootScope','$location', function($scope,$rootScope,$location) {
         // create a message to display in our view
         // $scope.session = true;
         // if ($scope.session==true){
@@ -10,5 +10,6 @@ loginApp.controller('loginController',['$scope','$rootScope', function($scope,$r
         $scope.validateSession = function(){
         	$rootScope.session = true;
             $rootScope.noSession = false;
+            $location.path( "/zoozoo" );
         }
     }]);

@@ -1,4 +1,4 @@
-loginApp.controller('registerController', function($scope,RegisterService) {
+loginApp.controller('registerController', function($scope,RegisterService,$location,$rootScope) {
         // create a message to display in our view
 
         RegisterService.list().success(function(data) {
@@ -10,7 +10,18 @@ loginApp.controller('registerController', function($scope,RegisterService) {
         	//console.log($scope.vm.user);
         	RegisterService.registerUser($scope.form_data).success(function(data) {
         		$scope.notification=data;
-        	});
+//should do these things only on success notification
+                if (confirm("User details are registered successfully!  Now press OK to continue") == true) {
+                    $rootScope.session = true;
+                    $rootScope.noSession = false;
+                    $location.path( "/zoozoo" );
+                } else {
+                 var x = "You pressed Cancel!";
+             }
+             $rootScope.session = true;
+             $rootScope.noSession = false;
+             $location.path( "/zoozoo" );
+         });
         };
 
     });

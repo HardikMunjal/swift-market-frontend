@@ -99,7 +99,7 @@
             .state('zoozoo', {
                 url: '/zoozoo',
                 templateUrl : 'pages/zoozoo/welcome.html',
-                controller  : 'zoozooController'
+                controller  : 'welcomeCtrl'
             });
 
     });
@@ -125,8 +125,8 @@
     loginApp.controller('sessionController',['$scope','$rootScope','$location', function($scope,$rootScope,$location) {
         // create a message to display in our view
         $scope.message = 'controller should be in seperate folder!!';
-        $rootScope.session = true;
-        $rootScope.noSession = false;
+        $rootScope.session = false;
+        $rootScope.noSession = true;
 
         if ($rootScope.session==true) {
          $location.path( "/zoozoo" );
