@@ -67,6 +67,8 @@ h1,h2,h3,h4,h5,h6 {
 #wrapper {
 width:100%;
 margin : 0;
+overflow:auto;
+height : 400px;
 }
 
 #first-div {
@@ -87,6 +89,7 @@ float : left ;
 width:50%;
 float : left ;
 right: 15px;
+
 }
 
 
@@ -96,15 +99,15 @@ right: 15px;
 
 
 .zoo-reply {
-    position: absolute;
-    right: 15px;
+    float: right;
+    text-align: right;
     width: 300px;
     border: 3px solid #73AD21;
     padding: 10px;
 }
 .user-reply {
-    position: absolute;
-    right: 55px;
+  text-align: left;
+    float: left;
     width: 300px;
     border: 3px solid red;
     padding: 10px;
