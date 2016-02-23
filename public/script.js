@@ -9,24 +9,6 @@
 
         $stateProvider
 
-            // route for the home page
-           .state('swift', {
-                url: '/swift',
-                templateUrl : 'pages/login.html',
-                controller  : 'loginController'
-            })
-        
-            .state('swift.login', {
-                url: '/login',
-                templateUrl: 'pages/login.html',
-                controller : 'loginController'
-            })
-            
-            // url will be /form/interests
-            .state('swift.global_profile', {
-                url: '/profile',
-                templateUrl: 'pages/register/register-profile.html'
-            })
 
             .state('sess_router', {
                 url: '/sess_router',
@@ -104,30 +86,11 @@
 
     });
 
-    // create the controller and inject Angular's $scope
-
-    loginApp.controller('aboutController', function($scope) {
-        $scope.message = 'Hey this is hardik, Get ready for the big';
-    });
-
-    loginApp.controller('contactController', function($scope) {
-        $scope.message = 'Contact me at hardik.munjaal@gmail.com, if you want to contribute to this app';
-    });
-
-    // loginApp.controller('sessionController', function($scope) {
-    //     // create a message to display in our view
-    //     $scope.message = 'controller should be in seperate folder!!';
-    //     $scope.session = false;
-    //     $scope.noSession = true;
-
-    // });
 
     loginApp.controller('sessionController',['$scope','$rootScope','$location', function($scope,$rootScope,$location) {
         // create a message to display in our view
         $scope.message = 'controller should be in seperate folder!!';
-        $rootScope.session = false;
-        $rootScope.noSession = true;
-
+        $rootScope.session='';
         if ($rootScope.session==true) {
          $location.path( "/zoozoo" );
         }
@@ -135,5 +98,3 @@
          $location.path( "/login" );
         }
      }]);
-
-                

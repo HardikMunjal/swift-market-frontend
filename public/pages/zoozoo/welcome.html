@@ -1,6 +1,33 @@
 <div id="wrapper" class="col-md-12">
 	<div id="first-div"class="col-md-5" class >
-		<div id="animation"></div>
+		<div id="animation" ng-show="show == 'zoo0'"></div>
+
+		 <input type="text" ng-init="show=='zoo0'" ng-model= "show"></input>
+
+		<div ng-show="show == 'zoo1'">
+
+		<img src="/images/zoo1.gif" alt="Smiley face">
+	</div>
+	<div ng-show="show == 'zoo2'">
+
+		<img src="/images/zoo2.gif" alt="Smiley face">
+	</div>
+	<div ng-show="show == 'zoo3'">
+
+		<img src="/images/zoo3.gif" alt="Smiley face">
+	</div>
+	<div ng-show="show == 'zoo4'">
+
+		<img src="/images/zoo4.gif" alt="Smiley face">
+	</div>
+	<div ng-show="show == 'zoo5'">
+
+		<img src="/images/zoo5.gif" alt="Smiley face">
+	</div>
+	<div ng-show="show == 'zoo6'">
+
+		<img src="/images/zoodance.gif" alt="Smiley face">
+	</div>
 	</div> 
 	<div id="second-div" class="col-md-5 " style="overflow:auto;height:400px" >
 		<div class="zoo-reply">
@@ -80,6 +107,7 @@
 		</div>
 	</div> -->
 
+ 
 </div>
 
 
@@ -87,4 +115,4 @@
 	<div>
 
 		<img src="/images/giphy.gif" alt="Smiley face">
-	</div> -->
+	</div>  -->
