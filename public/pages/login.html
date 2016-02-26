@@ -25,7 +25,7 @@
             <span style="color:red" ng-show="loginForm.user.$dirty && loginForm.user.$touched">
                 <span ng-show="loginForm.user.$error.required">Email Or Mobile No. is required.</span>
                 <span ng-show="loginForm.user.$error.maxlength">length is required.</span>
-                <span ng-show="notify">{{notificationError}}</span>
+                <span ng-show="notify">{{validationError}}</span>
             </span>
         </div>
         
@@ -44,9 +44,15 @@
                 <span ng-show="loginForm.password.$error.minlength">Password length cant be smaller than 5</span>
             </span>
         </div>
-        
+        <div>
+            <span style="color:red">
+                <span ng-show="parentNotifier">{{notificationError}}</span>
+            </span>
+        </div>
         <div class="form-group" ng-disabled="loginForm.user.$dirty || loginForm.password.$dirty">
             <button type="submit" class="btn btn-danger">Submit</button>
+            <hr/>
+            <a href="#/register/credential" class="btn-lg btn-success">Register</a>
         </div>
 
     </form>
