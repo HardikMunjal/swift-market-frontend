@@ -3,8 +3,10 @@
 
     var sess =false;
     // configure our routes
-    loginApp.config(function($stateProvider, $urlRouterProvider) {
+    loginApp.config(function($stateProvider, $urlRouterProvider ,$httpProvider) {
 
+        $httpProvider.defaults.withCredentials = true;
+        $httpProvider.defaults.useXDomain = true;
         $urlRouterProvider.otherwise("/sess_router")
 
         $stateProvider
@@ -13,11 +15,7 @@
             .state('sess_router', {
                 url: '/sess_router',
                 templateUrl : 'login/test.html',
-                controller  : 'sessionController',
-                onEnter: function($rootscope) {
-                 $rootscope.session = false;
-                 $rootscope.noSession = true;
-                }
+                controller  : 'sessionController'
             })
             
 
@@ -90,7 +88,7 @@
     loginApp.controller('sessionController',['$scope','$rootScope','$location', function($scope,$rootScope,$location) {
         // create a message to display in our view
         $scope.message = 'controller should be in seperate folder!!';
-        $rootScope.session='';
+        $rootScope.session=false;
         if ($rootScope.session==true) {
          $location.path( "/zoozoo" );
         }
