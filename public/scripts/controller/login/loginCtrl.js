@@ -1,4 +1,4 @@
-loginApp.controller('loginController',['$scope','$rootScope','$location','LoginService', function($scope,$rootScope,$location ,LoginService) {
+loginApp.controller('loginController',['$scope','$rootScope','$location', '$localStorage','LoginService', function($scope,$rootScope,$location, $localStorage ,LoginService) {
 
     $scope.user_id='';
 
@@ -17,19 +17,20 @@ loginApp.controller('loginController',['$scope','$rootScope','$location','LoginS
 
 
         LoginService.loginUser($scope.form_data_login).success(function(data) {
-         $scope.notification=data;
-         $rootScope.session = true;
-         $rootScope.noSession = false;
-         $location.path( "/zoozoo" );
+             $scope.notification=data;
+             $localStorage.userExistence = "Bro User is availlable";
+             $rootScope.session = true;
+             $rootScope.noSession = false;
+             $location.path( "/zoozoo" );
      }).error(function(data, status, headers, config) {
         // called asynchronously if an error occurs
         // or server returns response with status
         // code outside of the <200, 400) range
-         $scope.parentNotifier=true;
-         $scope.notificationError= data.error;
-         $rootScope.session = false;
-         $rootScope.noSession = true;
-         $location.path( "/login" );
+             $scope.parentNotifier=true;
+             $scope.notificationError= data.error;
+             $rootScope.session = false;
+             $rootScope.noSession = true;
+             $location.path( "/login" );
      });;
 
      }

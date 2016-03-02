@@ -1,5 +1,5 @@
  // create the module and name it scotchApp
-    var loginApp = angular.module('loginApp', ['ui.router']);
+    var loginApp = angular.module('loginApp', ['ui.router','ngStorage']);
 
     var sess =false;
     // configure our routes
@@ -85,10 +85,16 @@
     });
 
 
-    loginApp.controller('sessionController',['$scope','$rootScope','$location', function($scope,$rootScope,$location) {
+    loginApp.controller('sessionController',['$scope','$rootScope','$location','$localStorage', function($scope,$rootScope,$location,$localStorage) {
         // create a message to display in our view
         $scope.message = 'controller should be in seperate folder!!';
+        console.log(!$localStorage.userExistence);
+        if(!$localStorage.userExistence){
         $rootScope.session=false;
+        }else{
+            $rootScope.session=true;
+        }
+
         if ($rootScope.session==true) {
          $location.path( "/zoozoo" );
         }
