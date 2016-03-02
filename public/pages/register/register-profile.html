@@ -2,12 +2,12 @@
        
          <div class="form-group">
             <label>Gender</label>
-            <input type="radio" ng-model="gender" value="male" required>
+            <input type="radio" ng-model="form_data.gender" value="male" required>
             male
-            <input type="radio" ng-model="gender" value="female" required/>
+            <input type="radio" ng-model="form_data.gender" value="female" required/>
             female
                 
-            <span style="color:red" ng-show="form.gender.$dirty && form_data.gende.$touched">
+            <span style="color:red" ng-show="form.gender.$dirty && form_data.gender.$touched">
                 <span ng-show="form.gender.$error.required">Gender is required.</span>
             </span>
         </div>
